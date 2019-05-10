@@ -105,7 +105,7 @@ def predict_holdout(test_index,txt_loc,lbl_loc,model_path,num_classes,batch_size
             holdout_batch-=feature_mean
             holdout_batch/=feature_std
             holdout_batch=np.nan_to_num(holdout_batch)
-            val_loss,val_acc,c_p = sess.run([loss_op,MSE_,clipped_prediction], feed_dict={X: holdout_batch, Y: holdout_label, dropout1: 1, dropout2: 1})
+            val_loss,val_acc,c_p = sess.run([loss_op,MSE_,clipped_prediction], feed_dict={X: holdout_batch, Y: holdout_label, dropout2: 1})
 
             predictions[step,:]=np.squeeze(c_p)
     return predictions
