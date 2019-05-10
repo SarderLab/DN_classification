@@ -1,11 +1,8 @@
 function glomerularCompartmentSegmentation(image_dir,boundary_dir,nuc_dir,out_dir)
-% Parameter controlling the amount of Gaussian smoothing performed to the
-% image before segmenting the glomerular compartments
-gauss_sig=1;
+
 
 parfor g=1:length(image_dir)
-    g
-%     tic
+
     % Read image, glomerular mask, and nuclear mask
     I=imread(fullfile(image_dir(g).folder,image_dir(g).name));
 
@@ -90,7 +87,6 @@ parfor g=1:length(image_dir)
     final_mask(~repmat(boundary,[1,1,3]))=0;
     imwrite(double(final_mask),[out_dir,'/',image_dir(g).name])
 
-%     toc
     catch
         display(['Skipping compartment segmentation for image ' num2str(g)])
  
