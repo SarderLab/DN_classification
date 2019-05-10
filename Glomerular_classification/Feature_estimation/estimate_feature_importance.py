@@ -64,7 +64,7 @@ full_index=range(0,len(all_features))
 
 # Get the predictions on all data without dropping any features (base predictions)
 tf.reset_default_graph()
-base_pred=predict_holdout_e(full_index,txt_loc,lbl_loc,saved_model_path,predict_batch)
+base_pred=predict_holdout_e(full_index,txt_loc,lbl_loc,[],saved_model_path,predict_batch)
 # Write them to the output file
 for idx,case in enumerate(base_pred):
     m_pred=np.mean(case)
