@@ -5,35 +5,23 @@ import tensorflow as tf
 
 from data_loader import import_data,random_batcher,import_labels
 
-#os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 def train_network(train_index,test_index,txt_loc,lbl_loc,learning_rate,training_steps,batch_size,
-    save_interval,num_classes,model_path,drop_features,glom_samplings,drop1,drop2):
+    save_interval,num_classes,model_path,glom_samplings,drop):
 
-    # Training Parameters
-
+    # How often to display training information. This also controls how often to validate from the holdout data
     display_step = 50
 
     # Network Parameters
-
     num_hidden = 50
     num_hidden_2 = 25
 
 
-    # Location of data, labels, and desired output loss log file
-
+    # Where to write the training and validation loss for the current fold (gets overwritten every time)
     loss_txt='loss.txt'
 
     # Import data and labels
     all_features = np.array(import_data(txt_loc))
-
-
     labels=np.array(import_labels(lbl_loc))
-
-    for case in range(0,len(all_features)):
-        for glom in range(0,len(all_features[case])):
-            for f_ in drop_features[::-1]:
-
-                all_features[case][glom].pop(f_-1)
 
 
     # Before doing anything, identify the mean and standard deviation of all features,
@@ -42,16 +30,13 @@ def train_network(train_index,test_index,txt_loc,lbl_loc,learning_rate,training_
     std_record=[]
 
     for case in all_features:
-
         mean_record.append(np.mean(np.asarray(case),0))
         std_record.append(np.std(np.asarray(case),0))
+    # Ignore NaNs
     feature_mean=np.nanmean(mean_record,0)
     feature_std=np.nanstd(std_record,0)
-    feature_min=np.nanmin(mean_record,0)
-    feature_max=np.nanmax(mean_record,0)
 
-
-    # Identify cases for training and cases for testing
+    # Split cases for training and cases for testing
     train_features=all_features[train_index]
     train_labels=labels[train_index]
 
@@ -65,7 +50,7 @@ def train_network(train_index,test_index,txt_loc,lbl_loc,learning_rate,training_
     # Define placeholders for graph input
     X = tf.placeholder(tf.float32, [None, glom_samplings, num_input])
     Y = tf.placeholder(tf.float32, [None, 1])
-    dropout1 = tf.placeholder(tf.float32,shape=(),name='dropout1')
+
     dropout2 = tf.placeholder(tf.float32,shape=(),name='dropout2')
 
     # Function to return LSTM during graph definition
@@ -81,8 +66,6 @@ def train_network(train_index,test_index,txt_loc,lbl_loc,learning_rate,training_
 
     # Dense layer to select input feature importance
     D_in=tf.layers.dense(X,num_input,activation=tf.nn.leaky_relu)
-    # Dropout to reduce overfit
-    D_in=tf.nn.dropout(D_in,dropout1)
     # First lstm layer
     cell_1 = lstm(x_=D_in,unit_num=num_hidden,seq_flag=True)
     # Dropout between LSTM cells
@@ -108,7 +91,7 @@ def train_network(train_index,test_index,txt_loc,lbl_loc,learning_rate,training_
     # Save model
     saver=tf.train.Saver(max_to_keep=int(round(training_steps/save_interval)))
 
-    #Save holdout indices and labels to text file
+    #Save holdout indices and labels to loss file in case we want to know later
     f=open(loss_txt,'w')
     f=open(loss_txt,'a+')
     for h in test_index:
@@ -134,29 +117,26 @@ def train_network(train_index,test_index,txt_loc,lbl_loc,learning_rate,training_
             # Standardize the features before input to network
             batch_x-=feature_mean
             batch_x/=feature_std
+            # Replace NaNs from standardization procedure with zeros or else the gradient is screwed
             batch_x=np.nan_to_num(batch_x)
-            # In case any features have a standard deviation  of zero / near zero which results in NaN during normalization
-            #batch_x=np.nan_to_num(batch_x)
 
-            # Pull a random holdout batch of sequences from the holdout patients, for validation
+            # Pull a random fixed-length holdout batch of sequences from the holdout patients, for validation
             holdout_batch,holdout_label=random_batcher(holdout_features,glom_samplings,batch_size,holdout_labels)
 
-            # Standardize
+            # Same thing as training batch prep
             holdout_batch-=feature_mean
             holdout_batch/=feature_std
             holdout_batch=np.nan_to_num(holdout_batch)
-            # In case any features have a standard deviation of zero / near zero which results in NaN during normalization
-            #holdout_batch=np.nan_to_num(holdout_batch)
 
-            # Run the graph, return the training loss, MSE, and sample predictions
+            # Run the training operation, return the training loss, MSE, and sample predictions
             _,loss, acc,pred = sess.run([train_op,loss_op, MSE_,prediction], feed_dict={X: batch_x,
-                                                                 Y: batch_y, dropout1: drop1, dropout2: drop2})
+                                                                 Y: batch_y, dropout2: drop})
 
 
             if step % display_step == 0 or step == 1:
-                # Calculate batch loss and MSE
+
                 # Run the graph for validation, return the validation loss, validation MSE, and a clipped prediction
-                val_loss,val_acc,c_p = sess.run([loss_op,MSE_,clipped_prediction], feed_dict={X: holdout_batch, Y: holdout_label, dropout1: 1, dropout2: 1})
+                val_loss,val_acc,c_p = sess.run([loss_op,MSE_,clipped_prediction], feed_dict={X: holdout_batch, Y: holdout_label, dropout2: 1})
                 # Print some information to the command line
                 print("Step " + str(step) + ", Train Loss= " + \
                       "{:.4f}".format(loss) + ", Val loss= " + \
