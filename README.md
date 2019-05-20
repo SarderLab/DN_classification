@@ -9,10 +9,10 @@ Glomerular detection:
 XML annotation files for Aperio ImageScope whole slide images, either acquired using our HAIL pipeline for WSI segmentation (https://github.com/SarderLab/H-AI-L), or manual annotation  
 OpenSlide (https://openslide.org/)  
 
-GCA and feature analysis:
+GCA and feature analysis:  
 MATLAB (https://www.mathworks.com/products/matlab.html)  
 
-RNN classifier:
+RNN classifier:  
 NumPy (https://www.numpy.org/)  
 Tensorflow (https://www.tensorflow.org/)  
 scikit-learn (https://pypi.org/project/sklearn/)  
