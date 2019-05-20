@@ -2,6 +2,9 @@
 
 This repository contains the source codes for the publication entitled "Computational segmentation and classification of diabetic glomerulosclerosis", which was submitted after revision to JASN on XX. 
 
+# DeepLab V2 network
+In our work we use the DeepLab V2 Tensorflow implementation available here: https://github.com/zhengyang-wang/Deeplab-v2--ResNet-101--Tensorflow
+
 # DeepLab V2 ResNet Models
 All glomerulus and nucleus segmentation models are available at https://buffalo.box.com/s/e40wzg2flb3p0r73zyhelhqvhle46vvr
 
