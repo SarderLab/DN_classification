@@ -45,6 +45,6 @@ Classification - Contains the algorithms necessary to classify glomerular featur
 Feature estimation - Contains the algorithms necessary to train a single model and perform sequential feature dropout at prediction time. Takes as input a feature description text file, a set of labels, and yields a formatted text file that contain the prediction data from each dropout. 
 
 Feature_texts:  
-This directory contains pre-derived feature texts which correspond to the experiments described in our manuscript. 
+This directory contains pre-derived feature texts and labels which correspond to the experiments described in our manuscript. 
 
 
