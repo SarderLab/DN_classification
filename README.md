@@ -14,7 +14,7 @@ lxml (https://lxml.de/)
 OpenCV Python (3.4.0.12) (http://opencv-python-tutroals.readthedocs.io/en/latest/index.html)  
 skimage (0.15.0) (http://scikit-image.org/docs/dev/api/skimage.html)  
 
-Nuclear detection:
+Nuclear detection:  
 DeepLab V2 for Tensorflow (and also you will need to download the modified model.py and main.py if you want to use the weighting scheme derived in the paper)
 
 GCA and feature analysis:  
@@ -24,3 +24,21 @@ RNN classifier:
 NumPy (https://www.numpy.org/)  
 Tensorflow (https://www.tensorflow.org/)  
 scikit-learn (https://pypi.org/project/sklearn/)  
+
+# Contents
+Glomerular_nuclear_detection:  
+This directory contains a modified "main.py" and "model.py", which are needed to reproduce the network output weighting scheme presented in the paper. To use, download these files and place them in the respective DeepLab folder, overwriting the base copies of main.py and model.py. This directory also contains a file named xml_to_nuclei.py, which takes as input a folder of WSIs and XML annotations, and provides as output a formatted directory containing extracted glomeruli images with boundary and nuclei segmented. 
+
+GCA_and_features:  
+Human - Contains MATLAB codes for extracting glomerular features. Takes as input a structured directory output from xml_to_nuclei.py and goes through each patient folder and extracts the glomerular components and glomerular features. Writes all features to a formatted text file which can be used for RNN classification.
+
+Mouse - Contains MATLAB codes for extracting glomerular features, as mentioned directory above, only for mouse data instead. 
+
+Glomerular_classification:  
+Classification - Contains the algorithms necessary to classify glomerular features using RNN based strategy presented in the paper. Specifically, the scripts will perform 10-fold cross validation of the RNN classification strategy.
+Feature estimation - Contains the algorithms necessary to train a single model and perform sequential feature dropout at prediction time. Takes as input a feature description text file, a set of labels, and yields a formatted text file that contain the prediction data from each dropout. 
+
+Feature_texts:  
+This directory contains pre-derived feature texts which correspond to the experiments described in our manuscript. 
+
+
