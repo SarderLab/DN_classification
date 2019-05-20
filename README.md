@@ -9,7 +9,7 @@ All glomerulus and nucleus segmentation models are available at https://buffalo.
 Glomerular detection:  
 XML annotation files for Aperio ImageScope whole slide images, either acquired using our HAIL pipeline for WSI segmentation (https://github.com/SarderLab/H-AI-L), or manual annotation  
 OpenSlide (https://openslide.org/)  
-DeepLab V2 for Tensorflow (https://github.com/zhengyang-wang/Deeplab-v2--ResNet-101--Tensorflow)
+DeepLab V2 for Tensorflow (https://github.com/zhengyang-wang/Deeplab-v2--ResNet-101--Tensorflow)  
 lxml (https://lxml.de/)  
 OpenCV Python (3.4.0.12) (http://opencv-python-tutroals.readthedocs.io/en/latest/index.html)  
 skimage (0.15.0) (http://scikit-image.org/docs/dev/api/skimage.html)  
