@@ -27,7 +27,8 @@ scikit-learn (https://pypi.org/project/sklearn/)
 
 # Contents
 Glomerular_nuclear_detection:  
-This directory contains a modified "main.py" and "model.py", which are needed to reproduce the network output weighting scheme presented in the paper. To use, download these files and place them in the respective DeepLab folder, overwriting the base copies of main.py and model.py. This directory also contains a file named xml_to_nuclei.py, which takes as input a folder of WSIs and XML annotations, and provides as output a formatted directory containing extracted glomeruli images with boundary and nuclei segmented. 
+This directory contains a modified "main.py" and "model.py", which are needed to reproduce the network output weighting scheme presented in the paper. To use, download these files and place them in the respective DeepLab folder, overwriting the base copies of main.py and model.py. Then, to apply weighting, change the value of "prior" listed under the prediction parameters in "main.py".  
+This directory also contains a file named xml_to_nuclei.py, which takes as input a folder of WSIs and XML annotations, and provides as output a formatted directory containing extracted glomeruli images with boundary and nuclei segmented. 
 
 GCA_and_features:  
 Human - Contains MATLAB codes for extracting glomerular features. Takes as input a structured directory output from xml_to_nuclei.py and goes through each patient folder and extracts the glomerular components and glomerular features. Writes all features to a formatted text file which can be used for RNN classification.
