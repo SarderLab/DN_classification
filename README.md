@@ -31,12 +31,12 @@ This directory contains a modified "main.py" and "model.py", which are needed to
 This directory also contains a file named xml_to_nuclei.py, which takes as input a folder of WSIs and XML annotations, and provides as output a formatted directory containing extracted glomeruli images with boundary and nuclei segmented. 
 
 GCA_and_features:  
-Human - Contains MATLAB codes for extracting glomerular features. Takes as input a structured directory output from xml_to_nuclei.py and goes through each patient folder and extracts the glomerular components and glomerular features. Writes all features to a formatted text file which can be used for RNN classification.
+Human - Contains MATLAB codes for extracting glomerular features. Takes as input a structured directory output from xml_to_nuclei.py and goes through each patient folder and extracts the glomerular components and glomerular features. Writes all features to a formatted text file which can be used for RNN classification. To use, first acquire glomeruli using the xml_to_nuclei.py script, then run DN_classification_master.m and selected the directory where glomerular images are located. 
 
-Mouse - Contains MATLAB codes for extracting glomerular features, as mentioned directory above, only for mouse data instead. 
+Mouse - Contains MATLAB codes for extracting glomerular features, as mentioned directory above, only for mouse data instead. The main script is Mouse_classification_master.m
 
 Glomerular_classification:  
-Classification - Contains the algorithms necessary to classify glomerular features using RNN based strategy presented in the paper. Specifically, the scripts will perform 10-fold cross validation of the RNN classification strategy.
+Classification - Contains the algorithms necessary to classify glomerular features using RNN-based strategy presented in the paper. Specifically, the scripts will perform 10-folds of training and testing data and save the predicted results in each holdout set to a desired text file. Takes as input a feature description text file and a set of labels. Yields cross-validated training models and predictions for each holdout set. 
 Feature estimation - Contains the algorithms necessary to train a single model and perform sequential feature dropout at prediction time. Takes as input a feature description text file, a set of labels, and yields a formatted text file that contain the prediction data from each dropout. 
 
 Feature_texts:  
