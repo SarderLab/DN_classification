@@ -49,4 +49,9 @@ Feature estimation - Contains the algorithms necessary to train a single model a
 Feature_texts:  
 This directory contains pre-derived feature texts and labels which correspond to the experiments described in our manuscript. 
 
-    This is a test
+# Usage
+    Glomerular boundary detection and glomerular nucleus segmentation:
+    Install DeepLab V2 and download pretrained models for low and high resolution glomerular segmentation, and high resolution nuclear segmentation
+    If you want to add a weighting amount to the 
+    Create a single folder in your workspace containing: 1) whole slide images in .svs format, 2) .xml annotation files for each .svs file
+    
