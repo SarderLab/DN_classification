@@ -18,6 +18,7 @@ DeepLab V2 for Tensorflow (https://github.com/zhengyang-wang/Deeplab-v2--ResNet-
 lxml (https://lxml.de/)  
 OpenCV Python (3.4.0.12) (http://opencv-python-tutroals.readthedocs.io/en/latest/index.html)  
 skimage (0.15.0) (http://scikit-image.org/docs/dev/api/skimage.html)  
+PIL (5.3.0) (https://pillow.readthedocs.io/en/latest/)  
 
 Nuclear detection:  
 DeepLab V2 for Tensorflow (and also you will need to download the modified model.py and main.py if you want to use the weighting scheme derived in the paper)
