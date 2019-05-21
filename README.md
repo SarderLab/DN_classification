@@ -8,8 +8,6 @@ In our work we use the DeepLab V2 Tensorflow implementation available here: http
 # Data / Pre-trained models
 Whole slide DN biopsy images, and trained glomerulus and nucleus segmentation models are here: https://buffalo.box.com/s/e40wzg2flb3p0r73zyhelhqvhle46vvr
 
-All trained glomerulus and nucleus segmentation models are available at https://buffalo.box.com/s/e40wzg2flb3p0r73zyhelhqvhle46vvr
-
 # Requirements
 Glomerular detection:  
 XML annotation files for Aperio ImageScope whole slide images, either acquired using our HAIL pipeline for WSI segmentation (https://github.com/SarderLab/H-AI-L), or manual annotation  
