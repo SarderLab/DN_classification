@@ -67,7 +67,7 @@ Glomerular component analysis and feature extraction:
     All modifiable parameters are found at the beginning of each script file  
     A string variable on line 19 of DN_classification_master.m determines where the output feature data should be stored  
     
-Glomerular classification
+Glomerular classification:
 
     This algorithm takes as input a text file describing features for each parent, formatted in the style which is output from the glomerular component analysis and feature extraction algorithms, and a set of labels for each patient data, also in a text file.  
     Sample feature texts and labels which were derived in the work are available in the "Feature_texts" directory. 
