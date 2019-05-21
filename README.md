@@ -21,6 +21,7 @@ skimage (0.15.0) (http://scikit-image.org/docs/dev/api/skimage.html)
 PIL (5.3.0) (https://pillow.readthedocs.io/en/latest/)  
 
 Nuclear detection:  
+If using the provided script xml_to_nuclei.py, you will need all of the requirements listed under Glomerular detection above.  
 DeepLab V2 for Tensorflow (and also you will need to download the modified model.py and main.py if you want to use the weighting scheme derived in the paper)
 
 GCA and feature analysis:  
