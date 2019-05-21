@@ -2,8 +2,6 @@ import sys
 import os
 import tensorflow as tf
 import numpy as np
-import matplotlib.pyplot as plt
-
 from data_loader import import_data,random_batcher,import_labels
 
 def predict_holdout_e(test_index,txt_loc,lbl_loc,f,model_path,batch_size):
