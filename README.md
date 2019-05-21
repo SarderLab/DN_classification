@@ -20,7 +20,7 @@ PIL (5.3.0) (https://pillow.readthedocs.io/en/latest/)
 
 Nuclear detection:  
 If using the provided script xml_to_nuclei.py, you will need all of the requirements listed under Glomerular detection above.  
-You will need to download the modified model.py and main.py if you want to use the weighting scheme derived in the paper  
+You will need to download the modified model.py and main_n.py if you want to use the weighting scheme derived in the paper  
 
 GCA and feature analysis:  
 MATLAB (https://www.mathworks.com/products/matlab.html)  
@@ -32,7 +32,7 @@ scikit-learn (https://pypi.org/project/sklearn/)
 
 # Contents
 Glomerular_nuclear_detection:  
-This directory contains a modified "main.py" and "model.py", which are needed to reproduce the network output weighting scheme presented in the paper. To use, download these files and place them in the respective DeepLab folder, overwriting the base copies of main.py and model.py. Then, to apply weighting, change the value of "prior" listed under the prediction parameters in "main.py".  
+This directory contains a modified "main_n.py" and "model.py", which are needed to reproduce the network output weighting scheme presented in the paper. To use, download these files and place them in the respective DeepLab folder, overwriting the base copies of main.py and model.py. Then, to apply weighting, change the value of "prior" listed under the prediction parameters in "main.py".  
 This directory also contains a file named xml_to_nuclei.py, which takes as input a folder of WSIs and XML annotations, and provides as output a formatted directory containing extracted glomeruli images with boundary and nuclei segmented. 
 
 GCA_and_features:  
