@@ -61,4 +61,8 @@ Glomerular boundary detection and glomerular nucleus segmentation:
     
     
 Glomerular component analysis and feature extraction:  
-These 
+
+    Make sure MATLAB is properly installed and configured. For human analysis, run the script "DN_Classification_master.m", which will prompt you to select a directory of patient data. The scripts are expecting the formatted directory structure created by the script xml_to_nuclei.py. For mouse analysis, run the script Mouse_Classification_master.m
+    All modifiable parameters are found at the beginning of each script file
+    A string variable on line 19 of DN_classification_master.m determines where the output feature data should be stored
+    
