@@ -5,7 +5,6 @@ import time
 import numpy as np
 import tensorflow as tf
 from PIL import Image
-import matplotlib.pyplot as plt
 from network import *
 from utils import ImageReader, decode_labels, inv_preprocess, prepare_label, write_log, read_labeled_image_list
 
@@ -118,14 +117,6 @@ class Model(object):
 		# Predict!
 		for step in range(self.conf.test_num_steps):
 			preds, raw_preds = self.sess.run([self.pred,raw_output_])
-			'''
-			raw_preds=np.squeeze(raw_preds)
-
-			print(raw_preds.shape)
-			plt.imshow(raw_preds[:,:,0])
-			plt.colorbar()
-			plt.show()
-			'''
 			img_name = image_list[step].split('/')[2].split('.')[0]
 
 			# Save raw predictions, i.e. each pixel is an integer between [0,20].
