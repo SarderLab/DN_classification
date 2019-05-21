@@ -183,7 +183,7 @@ for case_folder in input_folder_list:
         f.write(folder+file_ID+'\n')
     f.close()
     # Call deeplab for prediction
-    call(['python3', deeplab_dir+'/main.py',
+    call(['python3', deeplab_dir+'/main_n.py',
         '--option', 'predict',
         '--test_data_list', txt_loc,
         '--out_dir', outDir+'/'+case_folder+'/Nuclear_segmentations/',
