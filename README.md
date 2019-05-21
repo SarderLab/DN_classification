@@ -38,7 +38,7 @@ This directory contains a modified "main.py" and "model.py", which are needed to
 This directory also contains a file named xml_to_nuclei.py, which takes as input a folder of WSIs and XML annotations, and provides as output a formatted directory containing extracted glomeruli images with boundary and nuclei segmented. 
 
 GCA_and_features:  
-Human - Contains MATLAB codes for extracting glomerular features. Takes as input a structured directory output from xml_to_nuclei.py and goes through each patient folder and extracts the glomerular components and glomerular features. Writes all features to a formatted text file which can be used for RNN classification. To use, first acquire glomeruli using the xml_to_nuclei.py script, then run DN_classification_master.m and selected the directory where glomerular images are located. 
+Human - Contains MATLAB codes for extracting glomerular features. Takes as input a structured directory output from xml_to_nuclei.py and goes through each patient folder and extracts the glomerular components and glomerular features. Writes all features to a formatted text file which can be used for RNN classification. To use, first acquire glomeruli using the xml_to_nuclei.py script, then run DN_classification_master.m and select the directory where glomerular images are located. 
 
 Mouse - Contains MATLAB codes for extracting glomerular features, as mentioned directory above, only for mouse data instead. The main script is Mouse_classification_master.m
 
