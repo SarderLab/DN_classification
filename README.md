@@ -43,8 +43,8 @@ Human - Contains MATLAB codes for extracting glomerular features. Takes as input
 Mouse - Contains MATLAB codes for extracting glomerular features, as mentioned directory above, only for mouse data instead. The main script is Mouse_classification_master.m
 
 Glomerular_classification:  
-Classification - Contains the algorithms necessary to classify glomerular features using RNN-based strategy presented in the paper. Specifically, the scripts will perform 10-folds of training and testing data and save the predicted results in each holdout set to a desired text file. Takes as input a feature description text file and a set of labels. Yields cross-validated training models and predictions for each holdout set.  
-Feature estimation - Contains the algorithms necessary to train a single model and perform sequential feature dropout at prediction time. Takes as input a feature description text file, a set of labels, and yields a formatted text file that contain the prediction data from each dropout. 
+Classification - Contains the algorithms necessary to classify glomerular features using RNN-based strategy presented in the paper. Specifically, the scripts will perform 10-folds of training and testing and save the predicted results in each holdout set to a desired text file. Takes as input a feature description text file and a set of labels. Yields cross-validated training models and predictions for each holdout set.  
+Feature estimation - Contains the algorithms necessary to train a single model and perform sequential feature dropout at prediction time. Takes as input a feature description text file, a set of labels, and yields a formatted text file that contain the prediction data from each dropout iteration. 
 
 Feature_texts:  
 This directory contains pre-derived feature texts and labels which correspond to the experiments described in our manuscript. 
