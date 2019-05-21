@@ -6,7 +6,7 @@ This repository contains the source codes for the publication entitled "Computat
 In our work we use the DeepLab V2 Tensorflow implementation available here: https://github.com/zhengyang-wang/Deeplab-v2--ResNet-101--Tensorflow
 
 # Data / Pre-trained models
-Whole slide DN biopsy images made available with this work can be found here: https://buffalo.box.com/s/e40wzg2flb3p0r73zyhelhqvhle46vvr
+Whole slide DN biopsy images, and trained glomerulus and nucleus segmentation models are here: https://buffalo.box.com/s/e40wzg2flb3p0r73zyhelhqvhle46vvr
 
 All trained glomerulus and nucleus segmentation models are available at https://buffalo.box.com/s/e40wzg2flb3p0r73zyhelhqvhle46vvr
 
