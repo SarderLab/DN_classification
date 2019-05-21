@@ -1,7 +1,6 @@
 import os
 import numpy as np
 import tensorflow as tf
-import matplotlib.pyplot as plt
 from sklearn.model_selection import KFold
 from data_loader import import_data,import_labels
 from rnn_train import train_network
