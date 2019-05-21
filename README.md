@@ -48,8 +48,17 @@ Feature_texts:
 This directory contains pre-derived feature texts and labels which correspond to the experiments described in our manuscript. 
 
 # Usage
-    Glomerular boundary detection and glomerular nucleus segmentation:
+Glomerular boundary detection and glomerular nucleus segmentation:  
+
     Install DeepLab V2 and download pretrained models for low and high resolution glomerular segmentation, and high resolution nuclear segmentation
-    If you want to add a weighting amount to the 
+    If you want to add a weighting amount to the nuclear segmentation outputs, modify the "prior" input variable found in the main_n.py script.
     Create a single folder in your workspace containing: 1) whole slide images in .svs format, 2) .xml annotation files for each .svs file
+    The syntax to call the glomerular and nuclear segmentation is:
     
+    python xml_to_nuclei.py --wsi path/to/wsi/files/ --output path/to/desired/output/folder/
+    
+    There are various parameters within the script which can be modified for alternative functionality, and they are all found at the beginning. 
+    
+    
+Glomerular component analysis and feature extraction:  
+These 
