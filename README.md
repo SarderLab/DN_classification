@@ -67,4 +67,4 @@ This algorithm takes as input a text file describing features for each parent, f
     
     python KFoldRNN.py
     
-will split the dataset into 10 folds for training and testing, and proceed to train 10 cross-validated models. At the end of training on each fold, predictions will be acquired for the holdout set of the current fold. All predictions for all 10 folds will be written to a text file upon completion of cross validation (location specified by user).
+will split the dataset into 10 folds for training and testing, and proceed to train 10 cross-validated models. At the end of training on each fold, predictions will be acquired for the holdout set of the current fold. All predictions and associated ground truth labels for all 10 folds will be written to a text file upon completion of cross validation (location specified by user).
