@@ -50,10 +50,7 @@ This directory contains pre-derived feature texts and labels which correspond to
 # Usage
 Glomerular boundary detection and glomerular nucleus segmentation:  
 
-Install DeepLab V2 and download pretrained models for low and high resolution glomerular segmentation, and high resolution nuclear segmentation
-If you want to add a weighting amount to the nuclear segmentation outputs, modify the "prior" input variable found in the main_n.py script.
-Create a single folder in your workspace containing: 1) whole slide images in .svs format, 2) .xml annotation files for each .svs file
-The syntax to call the glomerular and nuclear segmentation is:
+Install DeepLab V2 and download pretrained models for low and high resolution glomerular segmentation, and high resolution nuclear segmentation. If you want to add a weighting amount to the nuclear segmentation outputs, modify the "prior" input variable found in the main_n.py script. Create a single folder in your workspace containing: 1) whole slide images in .svs format, 2) .xml annotation files for each .svs file. The syntax to call the glomerular and nuclear segmentation is:
     
     python xml_to_nuclei.py --wsi path/to/wsi/files/ --output path/to/desired/output/folder/
     
@@ -62,19 +59,12 @@ There are various parameters within the script which can be modified for alterna
     
 Glomerular component analysis and feature extraction:  
 
-Make sure MATLAB is properly installed and configured. For human analysis, run the script "DN_classification_master.m", which will prompt you to select a directory of patient data.  
-The scripts are expecting the formatted directory structure created by the script xml_to_nuclei.py. For mouse analysis, run the script Mouse_classification_master.m  
-All modifiable parameters are found at the beginning of each script file  
-A string variable on line 19 of DN_classification_master.m determines where the output feature data should be stored  
+Make sure MATLAB is properly installed and configured. For human analysis, run the script "DN_classification_master.m", which will prompt you to select a directory of patient data. The scripts are expecting the formatted directory structure created by the script xml_to_nuclei.py. For mouse analysis, run the script Mouse_classification_master.m. All modifiable parameters are found at the beginning of each script file. A string variable on line 19 of DN_classification_master.m determines where the output feature data should be stored  
     
 Glomerular classification:
 
-This algorithm takes as input a text file describing features for each parent, formatted in the style which is output from the glomerular component analysis and feature extraction algorithms, and a set of labels for each patient data, also in a text file.  
-Sample feature texts and labels which were derived in the work are available in the "Feature_texts" directory. 
-There are several important variables defined at the beginning of the script such as the feature location, label location, output model path, desired GPU device, etc. 
-Once the proper information is supplied, running the algorithm,
+This algorithm takes as input a text file describing features for each parent, formatted in the style which is output from the glomerular component analysis and feature extraction algorithms, and a set of labels for each patient data, also in a text file. Sample feature texts and labels which were derived in the work are available in the "Feature_texts" directory. There are several important variables defined at the beginning of the script such as the feature location, label location, output model path, desired GPU device, etc. Once the proper information is supplied, running the algorithm,
     
     python KFoldRNN.py
     
-will split the dataset into 10 folds for training and testing, and proceed to train 10 cross-validated models. 
-At the end of training on each fold, predictions will be acquired for the holdout set of the current fold. All predictions for all 10 folds will be written to a text file upon completion of cross validation (location specified by user).
+will split the dataset into 10 folds for training and testing, and proceed to train 10 cross-validated models. At the end of training on each fold, predictions will be acquired for the holdout set of the current fold. All predictions for all 10 folds will be written to a text file upon completion of cross validation (location specified by user).
