@@ -1,6 +1,6 @@
 # DN_classification
 
-This repository contains the source codes for the publication entitled "Computational segmentation and classification of diabetic glomerulosclerosis", which was submitted after revision to JASN on XX. All algorithms were developed and written by Brandon Ginley, with a special thanks to Brendon Lutnick who contributed to major design choices with respect to implementation of DeepLab V2 output weighting and application and structure of RNN classification.
+This repository contains the source codes for the publication entitled "Computational segmentation and classification of diabetic glomerulosclerosis", which was submitted after revision to JASN on XX. All algorithms were developed and written by [Brandon Ginley](https://github.com/bgginley), with a special thanks to [Brendon Lutnick](https://github.com/brendonlutnick) who contributed to major design choices with respect to implementation of DeepLab V2 output weighting and application and structure of RNN classification.
 
 # DeepLab V2 network
 In our work we use the DeepLab V2 Tensorflow implementation available here: https://github.com/zhengyang-wang/Deeplab-v2--ResNet-101--Tensorflow
