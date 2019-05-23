@@ -69,12 +69,12 @@ A string variable on line 19 of DN_classification_master.m determines where the 
     
 Glomerular classification:
 
-    This algorithm takes as input a text file describing features for each parent, formatted in the style which is output from the glomerular component analysis and feature extraction algorithms, and a set of labels for each patient data, also in a text file.  
-    Sample feature texts and labels which were derived in the work are available in the "Feature_texts" directory. 
-    There are several important variables defined at the beginning of the script such as the feature location, label location, output model path, desired GPU device, etc. 
-    Once the proper information is supplied, running the algorithm,
+This algorithm takes as input a text file describing features for each parent, formatted in the style which is output from the glomerular component analysis and feature extraction algorithms, and a set of labels for each patient data, also in a text file.  
+Sample feature texts and labels which were derived in the work are available in the "Feature_texts" directory. 
+There are several important variables defined at the beginning of the script such as the feature location, label location, output model path, desired GPU device, etc. 
+Once the proper information is supplied, running the algorithm,
     
     python KFoldRNN.py
     
-    will split the dataset into 10 folds for training and testing, and proceed to train 10 cross-validated models. 
-    At the end of training on each fold, predictions will be acquired for the holdout set of the current fold. All predictions for all 10 folds will be written to a text file upon completion of cross validation (location specified by user).
+will split the dataset into 10 folds for training and testing, and proceed to train 10 cross-validated models. 
+At the end of training on each fold, predictions will be acquired for the holdout set of the current fold. All predictions for all 10 folds will be written to a text file upon completion of cross validation (location specified by user).
