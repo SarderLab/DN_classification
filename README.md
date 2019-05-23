@@ -10,7 +10,7 @@ Whole slide DN biopsy images, and trained glomerulus and nucleus segmentation mo
 
 # Requirements
 Glomerular detection:  
-XML annotation files for Aperio ImageScope whole slide images, either acquired using our HAIL pipeline for WSI segmentation (https://github.com/SarderLab/H-AI-L), or manual annotation  
+XML annotation files for Aperio ImageScope whole slide images, either acquired using our HAIL pipeline for WSI segmentation (https://github.com/SarderLab/H-AI-L), or manual annotation. If you acquire the regions automatically, make sure to quality check the resulting predictions by either increasing the size threshold provided in HAIL or by manually removing erroneous segmentations in Aperio® ImageScope. Failure to do so may result in algorithms crashing during glomerular segmentation.   
 OpenSlide (https://openslide.org/)  
 DeepLab V2 for Tensorflow (https://github.com/zhengyang-wang/Deeplab-v2--ResNet-101--Tensorflow)  
 lxml (https://lxml.de/)  
