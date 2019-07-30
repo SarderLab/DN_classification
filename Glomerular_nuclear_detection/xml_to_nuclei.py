@@ -20,7 +20,7 @@ pad_width=100
 imBoxExt='.png'
 #Which device to use
 gpu_id='0'
-
+prior=0.1
 #Directory of tensorflow model and model checkpoint number
 model_dir='Deeplab-v2--ResNet-101--Tensorflow-master/model'
 nuc_ckpt=300000
@@ -116,7 +116,7 @@ if args.wsi == ' ':
     print('--wsi <path>\n')
     sys.exit()
 # Get list of all whole slide images
-WSIs_ = glob(args.wsi+'/*.svs')
+WSIs_ = glob(args.wsi+'/*.ndpi')
 for WSI in WSIs_:
     xml_ = glob(WSI.split('.')[0] + '.xml')
     if xml_ != []:
@@ -191,4 +191,5 @@ for case_folder in input_folder_list:
         '--test_num_steps', str(len(images_for_prediction)),
         '--modeldir', model_dir,
         '--data_dir', outDir+case_folder,
-        '--gpu', gpu_id])
+        '--gpu', gpu_id,
+        '--prior',str(prior)])
