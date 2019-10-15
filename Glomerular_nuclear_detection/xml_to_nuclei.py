@@ -116,7 +116,7 @@ if args.wsi == ' ':
     print('--wsi <path>\n')
     sys.exit()
 # Get list of all whole slide images
-WSIs_ = glob(args.wsi+'/*.ndpi')
+WSIs_ = glob(args.wsi+'/*.svs')
 for WSI in WSIs_:
     xml_ = glob(WSI.split('.')[0] + '.xml')
     if xml_ != []:
