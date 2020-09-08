@@ -20,7 +20,7 @@ pad_width=100
 imBoxExt='.png'
 #Which device to use
 gpu_id='0'
-prior=0.1
+prior=0.5
 #Directory of tensorflow model and model checkpoint number
 model_dir='Deeplab-v2--ResNet-101--Tensorflow-master/model'
 nuc_ckpt=300000
